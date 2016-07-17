@@ -23,6 +23,16 @@ sudo mv composer.phar /usr/local/bin/composer
 sudo apt-get install phpmyadmin 	
 		# later accessible through localhost/phpmyadmin
 		
+If you get a 404 error upon visiting http://localhost/phpmyadmin: You will need to configure apache2.conf to work with Phpmyadmin.
+
+$ sudo gedit /etc/apache2/apache2.conf
+
+Include the following line at the bottom of the file, save and quit.
+
+$ Include /etc/phpmyadmin/apache.conf
+
+Then, try to acccess localhost/phpmyadmin again
+		
  //Creating Laravel Project
 cd /var/www/html/
 sudo composer create-project laravel/laravel work --prefer-dist
